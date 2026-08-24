@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#eef2ff">
+  <meta name="description" content="اختبار تدريبي شامل لأسئلة امتحان قيادة السيارات الخصوصي">
+  <title>اختبار قيادة السيارات خصوصي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="quiz-shell" aria-live="polite">
+    <header>
+      <span class="eyebrow">تدرّب على جميع الأسئلة</span>
+      <h1>اختبار قيادة السيارات خصوصي</h1>
+    </header>
+
+    <section id="quizView">
+      <div class="meta-row">
+        <strong id="counter">السؤال 1 من 335</strong>
+        <span id="sectionName">قواعد القيادة</span>
+      </div>
+      <div class="navigation-tools">
+        <button id="questionPickerBtn" class="picker-open" type="button">اختيار رقم السؤال</button>
+        <span id="savedStatus">يتم حفظ تقدّمك تلقائياً</span>
+      </div>
+      <div class="scoreboard" aria-label="النتيجة الحالية">
+        <div class="score-item score-correct">
+          <span class="score-label">إجابات صحيحة</span>
+          <strong id="correctCount">0</strong>
+        </div>
+        <div class="score-item score-incorrect">
+          <span class="score-label">إجابات خاطئة</span>
+          <strong id="incorrectCount">0</strong>
+        </div>
+      </div>
+      <div class="progress" role="progressbar" aria-valuemin="1" aria-valuemax="335" aria-valuenow="1"><span id="progressBar"></span></div>
+
+      <article class="question-card">
+        <div id="imageWrap" class="sign-wrap" hidden><img id="signImage" alt="إشارة سير للسؤال"></div>
+        <h2 id="questionText"></h2>
+      </article>
+
+      <div id="choices" class="choices" role="radiogroup" aria-label="خيارات الإجابة"></div>
+      <p id="feedback" class="feedback" aria-live="assertive"></p>
+
+      <div class="actions">
+        <button id="confirmBtn" class="btn btn-secondary" disabled>تأكيد الإجابة</button>
+        <button id="nextBtn" class="btn btn-primary" disabled>السؤال التالي</button>
+      </div>
+    </section>
+
+    <dialog id="questionPicker" class="question-picker">
+      <div class="picker-head">
+        <div>
+          <h2>اختر السؤال</h2>
+          <p>يمكنك الانتقال إلى أي سؤال والعودة لاحقاً لإكمال الباقي.</p>
+        </div>
+        <button id="closePickerBtn" class="picker-close" type="button" aria-label="إغلاق">×</button>
+      </div>
+      <div class="picker-legend" aria-label="دليل الحالات">
+        <span><i class="dot unanswered"></i>لم تتم الإجابة</span>
+        <span><i class="dot correct"></i>صحيحة</span>
+        <span><i class="dot incorrect"></i>خاطئة</span>
+      </div>
+      <div id="questionGrid" class="question-grid"></div>
+    </dialog>
+
+    <section id="resultView" class="results" hidden>
+      <div class="result-icon">✓</div>
+      <h2>أكملت جميع الأسئلة!</h2>
+      <p id="resultScore"></p>
+      <div class="result-actions">
+        <button id="reviewBtn" class="btn btn-secondary">مراجعة الأخطاء</button>
+        <button id="restartBtn" class="btn btn-primary">إعادة الاختبار</button>
+      </div>
+    </section>
+  </main>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
